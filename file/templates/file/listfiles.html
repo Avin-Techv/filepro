@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <div class="container-fluid text-center">
+            <div class="col col-md-auto ">
+                <center>
+                    <form action =" " method="post">
+                        {% csrf_token %}
+                        <table>
+                        {{ form.as_table }}
+                        </table><br>
+                        <input type="submit" value="VIEW" />
+                    </form>
+                </center>
+            </div>
+        </div>
+    </body>
+</html>
