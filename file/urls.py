@@ -1,8 +1,7 @@
 from django.urls import path
-from . import views
-
+from .views import ListFiles
 app_name = 'file'
 
 urlpatterns = [
-    path('', views.ListFiles.as_view(), name="home")
+    path('', ListFiles.as_view(), name="home")
     ]

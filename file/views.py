@@ -10,9 +10,10 @@ from django.views.generic import FormView
 
 
 class ListFiles(FormView):
+
     template_name = "file/listfiles.html"
     form_class = ListFilesForm
-    success_url = 'accounts/listfiles.html'
+    success_url = '.'
 
     def form_valid(self, form):
         filepath=form.cleaned_data.get('file_path')
@@ -33,4 +34,4 @@ class ListFiles(FormView):
         else:
             print("Entered path is not valid...")
             messages.add_message(self.request, messages.WARNING, 'Entered path is not valid !')
-        return render(self.request, "file/listfiles.html")
+        return super(ListFiles, self).form_valid(form)

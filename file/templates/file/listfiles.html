@@ -1,4 +1,7 @@
 <html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
     <body>
         <div class="container-fluid text-center">
             <div class="col col-md-auto ">
@@ -8,7 +11,7 @@
                         <table>
                         {{ form.as_table }}
                         </table><br>
-                        <input type="submit" value="VALIDATE" />
+                        <input id="form_validate" type="submit" value="VALIDATE" />
                     </form>
                    {% for message in messages %}
                    <h4 style="color:red;"> {{ message }} </h4>
