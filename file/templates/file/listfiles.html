@@ -8,8 +8,11 @@
                         <table>
                         {{ form.as_table }}
                         </table><br>
-                        <input type="submit" value="VIEW" />
+                        <input type="submit" value="VALIDATE" />
                     </form>
+                   {% for message in messages %}
+                   <h4 style="color:red;"> {{ message }} </h4>
+                    {% endfor %}
                 </center>
             </div>
         </div>
