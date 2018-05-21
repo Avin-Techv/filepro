@@ -2,7 +2,6 @@ import os
 import magic
 from .forms import ListFilesForm
 from django.contrib import messages
-from django.shortcuts import render
 from django.views.generic import FormView
 
 
@@ -16,12 +15,21 @@ class ListFiles(FormView):
     success_url = '.'
 
     def form_valid(self, form):
-        filepath=form.cleaned_data.get('file_path')
+        filepath = form.cleaned_data.get('file_path')
         path_valid = os.path.exists(filepath)
 
-        if path_valid == True:
+        if path_valid is True:
             if os.path.isdir(filepath):
-                messages.add_message(self.request, messages.WARNING, 'The Entered Path is a valid folder. !')
+                messages.add_message(self.request, messages.WARNING, 'The Entered Path is a valid folder.')
+                print('\n\n')
+                messages.add_message(self.request, messages.WARNING, 'Folder Details')
+                print('\n')
+                messages.add_message(self.request, messages.WARNING, '============')
+                print('\n')
+                messages.add_message(self.request, messages.WARNING, 'Folder Name :')
+                current_path = next(os.walk(filepath))[0]
+                messages.add_message(self.request, messages.WARNING, current_path)
+
             elif os.path.isfile(filepath):
                 messages.add_message(self.request, messages.WARNING, 'The Entered Path is a file.')
                 print('\n\n')
